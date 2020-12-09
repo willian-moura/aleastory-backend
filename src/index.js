@@ -13,6 +13,6 @@ const server = http.createServer(app);
 
 gameModule(server);
 
-const port = 3333;
+const port = process.env.PORT || 3000;
 server.listen(port);
 console.log(`Listen on ${port} port...`);
