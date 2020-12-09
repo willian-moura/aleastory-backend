@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./src/index.js"
   },
-  "author": "",
+  "author": "Willian Moura",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
@@ -15,7 +15,6 @@
     "knex": "^0.21.1",
     "socket.io": "^2.3.0",
     "sqlite3": "^5.0.0",
-    "utils": "file:../utils",
     "ws": "^7.3.1"
   }
 }
