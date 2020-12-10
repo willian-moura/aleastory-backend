@@ -1,7 +1,7 @@
 const connection = require("../database/connection");
 
 module.exports = function createGame() {
-  const GAME_DURATION = 600;
+  const GAME_DURATION = 1200;
 
   const state = {
     players: {}, //players in the match
@@ -13,7 +13,7 @@ module.exports = function createGame() {
     lastBestWord: { word: "- ", player: null, votes: 0 }, //store the last best voted word by the players
     status: "Waiting...",
     stageDuration: 15,
-    finalClock: 30,
+    finalClock: 10,
     stageClock: 5, //current stage clock
   };
 
@@ -278,6 +278,7 @@ module.exports = function createGame() {
         duration: state.gameDuration,
       });
     } else {
+      saveStatistics();
       if (state.finalClock > 5) {
         state.finalClock -= 1;
         state.status = "Game over!";
@@ -293,7 +294,6 @@ module.exports = function createGame() {
         });
       } else if (state.finalClock > 0) {
         if (state.finalClock === 5) {
-          saveStatistics();
           resetScores();
         }
         state.finalClock -= 1;
